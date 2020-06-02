@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+  <title>
+    Mozilla Reps - Events
+  </title>
+  <link rel="shortcut icon" href="../static/base/img/remo/remo_icon.99dd22b65d8e.svg" />
+  <!-- Included CSS Files -->
+  <link rel="stylesheet" href="../static/CACHE/css/283d913a9735.css" type="text/css"
+    media="screen,projection,tv,print" />
+
+
+  <!-- Bing ownership verification -->
+  <meta name="msvalidate.01" content="B7B177115A634927D608514DA17B2574" />
+
+
+  <!-- our css is always last to override stuff -->
+  <link rel="stylesheet" href="../static/CACHE/css/4adee491160c.css" type="text/css" media="screen,projection,tv" />
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35433268-27']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_setAllowAnchor', true]);
+    _gaq.push(['_gat._anonymizeIp']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = 'https://ssl.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</head>
+
+<body data-mapbox-token="mozilla-webprod.g7im6jee">
+  <!-- container -->
+  <div class="container">
+
+    <!-- Header -->
+    <header class="row">
+      <div class="large-12 columns">
+
+        <!-- Sign In & Sign Out -->
+        <div class="row">
+          <div class="large-12 small-12 columns hide-on-print" id="login-box">
+            <div class="account anonymous nomenu logout">
+
+              <span id="login-menu-locator">
+                <a href="../oidc/authenticate/?next=">
+                  Login
+                </a>
+              </span>
+              or
+              <a href="#" data-reveal-id="join-modal">Join</a>
+
+            </div>
+          </div>
+
+          <!-- Logo & Navigation -->
+          <div class="logo-nav">
+
+            <!-- Logo and Wordmark -->
+            <div class="large-3 columns" id="logo-box">
+              <a class="logo" href="../index.html">
+                <img src="../static/base/img/remo/remo_logo.cb4efc616f17.svg" alt="Mozilla Reps logo">
+              </a>
+            </div>
+
+            <!-- Navigation -->
+            <nav role="navigation" class="small-12 large-9 columns" id="navigation-box">
+              <ul>
+                <li class="dropdown">
+
+                  <a href="../index.html" id="main-menu-locator" class="main None">Main</a>
+
+                </li>
+                <li>
+                  <a href="../dashboard/kpi/index.html" id="kpi-menu-locator" class="main None">KPI</a>
+                </li>
+                <li>
+                  <a href="../people/index.html" id="people-menu-locator" class="main None">People</a>
+                </li>
+                <li>
+                  <a href="index.html" id="events-menu-locator" class="main active-nav">Events</a>
+                </li>
+
+                <li class="dropdown">
+                  <a href="#" class="dropbtn">Communication</a>
+                  <ul class="dropdown-content">
+                    <li><a href="https://blog.mozilla.org/mozillareps" id="blog-menu-locator" class="main">Blog</a>
+                    </li>
+                    <li><a href="https://discourse.mozilla-community.org/c/reps" id="forum-menu-locator"
+                        class="main">Forum</a>
+                    </li>
+                    <li><a href="https://planet.mozillareps.org" id="planet-menu-locator" class="main">Planet</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropbtn">Docs</a>
+                  <ul class="dropdown-content">
+                    <li>
+                      <a href="https://wiki.mozilla.org/Reps" id="wiki-menu-locator" class="main">Wiki</a>
+                    </li>
+                    <li>
+                      <a href="https://wiki.mozilla.org/Reps/Leadership" id="wiki-menu-locator"
+                        class="main">Education</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="https://activate.mozilla.community" id="activate-menu-locator" class="main">Activate</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+
+
+    <!-- Client-side messages -->
+    <div class="row hide-on-print">
+      <div id="client-message-container" class="hidden large-12 columns">
+        <div class="alert-box">
+          <a href="#" class="close">&times;</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <main role="main" class="events-main">
+      <div class="row">
+        <div class="large-12 columns align-right">
+
+        </div>
+      </div>
+
+
+      <!-- Map & Vizualization -->
+      <div class="row ">
+        <div class="large-12 columns">
+          <div id="map" class="map500"></div>
+        </div>
+      </div>
+
+      <div id="map-overlay" class="hidden">
+        <div id="map-overlay-text">
+          Please refine search to view events.
+        </div>
+      </div>
+
+      <!-- Search box -->
+      <div class="row">
+        <form id="events-searchform">
+          <div class="large-9 columns" id="search">
+            <span class="pictogram-search" id="search-icon">
+              <div id="search-ready-icon" class="pict-icon large search"></div>
+              <div id="search-loading-icon"></div>
+            </span>
+            <input type="text" placeholder="Loading..." id="searchfield" class="input-text big" disabled="disabled">
+          </div>
+          <div class="large-3 columns">
+            <select id="events-period-selector">
+              <option value="all">All Events</option>
+              <option value="future">Current and Future</option>
+              <option value="past">Past</option>
+              <option value="custom">Custom</option>
+            </select>
+            <span id="adv-search-icon-events" title="Advanced Options" class="pict-icon large tools"></span>
+          </div>
+        </form>
+      </div>
+
+      <!-- Advanced search box -->
+      <div class="row hidden" id="adv-search">
+        <div class="large-12 columns">
+          <div class="row">
+            <form id="searchform">
+              <div class="large-2 columns">
+                <select id="adv-search-categories" class="expand">
+                  <option value="">All Categories</option>
+
+                  <option value="code contributions">Code Contributions</option>
+
+                  <option value="community support / participation">Community support / participation</option>
+
+                  <option value="documentation">Documentation</option>
+
+                  <option value="evangelism mission">Evangelism Mission</option>
+
+                  <option value="evangelism product">Evangelism Product</option>
+
+                  <option value="localization">Localization</option>
+
+                  <option value="marketing">Marketing</option>
+
+                  <option value="open design">Open Design</option>
+
+                  <option value="testing">Testing</option>
+
+                  <option value="user support (sumo)">User Support (SUMO)</option>
+
+                </select>
+              </div>
+              <div class="large-2 columns">
+                <select id="adv-search-initiatives" class="expand">
+                  <option value="">All Initiatives</option>
+
+                  <option value="campaigns">Campaigns</option>
+
+                  <option value="campus clubs">Campus Clubs</option>
+
+                  <option value="community spaces program">Community Spaces program</option>
+
+                  <option value="mozactivate - build your own extension with firefox">MozActivate - Build your own
+                    extension with Firefox</option>
+
+                  <option value="mozactivate - common voice">MozActivate - Common Voice</option>
+
+                  <option value="mozactivate - dive into rust">MozActivate - Dive into Rust</option>
+
+                  <option value="mozactivate - host a technology talk with tech speakers!">MozActivate - Host a
+                    Technology Talk with Tech Speakers!</option>
+
+                  <option value="mozactivate - web compatibility sprint">MozActivate - Web Compatibility Sprint</option>
+
+                  <option value="mozactivate -  webvr camp">MozActivate - WebVR Camp</option>
+
+                  <option value="mozilla reps council">Mozilla Reps Council</option>
+
+                  <option value="mozilla reps onboarding">Mozilla Reps Onboarding</option>
+
+                  <option value="mozilla reps - other in project initiative">Mozilla Reps - other in project initiative
+                  </option>
+
+                  <option value="mozilla reps resources">Mozilla Reps Resources</option>
+
+                  <option value="mozilla reps review">Mozilla Reps Review</option>
+
+                  <option value="other">Other</option>
+
+                  <option value="support sprint - sumo days">Support Sprint - SUMO Days</option>
+
+                  <option value="tech speakers program">Tech speakers program</option>
+
+                </select>
+              </div>
+              <div class="large-2 columns">
+                <select id="adv-search-attendance" class="expand">
+                  <option value="">Est. Attendance</option>
+                  <option value="10">1-10</option>
+                  <option value="50">11-50</option>
+                  <option value="100">51-100</option>
+                  <option value="500">101-500</option>
+                  <option value="1000">501-1000</option>
+                  <option value="2000">More than 1000</option>
+                </select>
+              </div>
+              <div class="large-2 columns">
+                <input type="text" class="datepicker input-text big" id="date-start" placeholder="Start Range Date" />
+              </div>
+              <div class="large-2 columns">
+                <input type="text" class="datepicker input-text big" id="date-end" placeholder="End Range Date" />
+              </div>
+              <div class="large-2 columns">
+                <a id="icalendar-export-button" class="small button" href="#">Export iCalendar</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="events-number" class="large-12 columns reps-number">{{len}} events found for period {{year}}-01-01 to {{year}}-12-31.</div>
+      </div>
+
+      <!-- Events listing -->
+      <div class="row">
+        <div class="large-12 columns">
+          <!-- Table start -->
+          <table id="events-table">
+            <tbody id="events-table-body">
