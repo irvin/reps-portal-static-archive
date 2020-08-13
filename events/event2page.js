@@ -4,7 +4,7 @@ var fs = require('fs'),
 var template = fs.readFileSync('./event.handlebars', 'utf-8');
 template = handlebars.compile(template);
 
-let jsonData = require('./EVENTS.json');
+let jsonData = require('../data/EVENTS.json');
 console.log('loaded', jsonData.length);
 
 let year = process.argv[2] || '2020';
@@ -29,7 +29,9 @@ fs.writeFileSync(fn, buffer);
 let getMonthStr = (dateObj) => ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'][dateObj.getMonth()];
 
 yearEvents.forEach(evt => { evt.start = new Date(evt.start); });
-yearEvents = yearEvents.sort((evt1, evt2) => evt1.start - evt2.start);
+yearEvents = yearEvents.sort((evt1, evt2) => {
+    return (evt1.start != evt2.start)? evt1.start - evt2.start : evt1.end - evt2.end;
+});
 
 yearEvents.forEach((evt, index) => {
 
